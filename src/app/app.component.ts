@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Location, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import * as shape from 'd3-shape';
 import * as d3Array from 'd3-array';
@@ -25,6 +25,7 @@ import pkg from '../../projects/swimlane/ngx-charts/package.json';
 import { InputTypes } from '@swimlane/ngx-ui';
 import { LegendPosition } from '@swimlane/ngx-charts/common/types/legend.model';
 import { ScaleType } from '@swimlane/ngx-charts/common/types/scale-type.enum';
+import { ShowDotsService } from './services/show-dots.service';
 
 const monthName = new Intl.DateTimeFormat('en-us', { month: 'short' });
 const weekdayName = new Intl.DateTimeFormat('en-us', { weekday: 'short' });
@@ -265,7 +266,7 @@ export class AppComponent implements OnInit {
   dimVisible: boolean = true;
   optsVisible: boolean = true;
 
-  constructor(public location: Location) {
+  constructor(public location: Location, public showDotsService: ShowDotsService) {
     this.mathFunction = this.getFunction();
 
     Object.assign(this, {
@@ -833,4 +834,18 @@ export class AppComponent implements OnInit {
     this.bubbleDemoChart.drilldown(event);
     this.bubbleDemoTempData = this.bubbleDemoChart.toChart();
   }
+
+  @ViewChild('myChart') myChart: any
+
+  ngAfterViewInit(): void {
+    this.showDotsService.showDots(this.myChart)
+    // this.numberChartRef.nativeElement.querySelectorAll("g.line-series path").forEach((el) => {
+    //      el.setAttribute("stroke-width", "10");
+    //      el.setAttribute("stroke-linecap", "round");
+    //     });
+  }
+
+  @ViewChild("numberChart", {read: ElementRef, static: false})
+  numberChartRef: ElementRef;
+
 }

@@ -1,5 +1,54 @@
 const chartGroups = [
   {
+    name: 'Perso',
+    charts: [
+      {
+        name: 'Line Chart Show Dots',
+        selector: 'line-chart-show-dots',
+        inputFormat: 'multiSeries',
+        options: [
+          'animations',
+          'colorScheme',
+          'schemeType',
+          'showXAxis',
+          'showYAxis',
+          'gradient',
+          'showLegend',
+          'legendTitle',
+          'legendPosition',
+          'showXAxisLabel',
+          'xAxisLabel',
+          'showYAxisLabel',
+          'yAxisLabel',
+          'autoScale',
+          'timeline',
+          'showGridLines',
+          'curve',
+          'rangeFillOpacity',
+          'roundDomains',
+          'tooltipDisabled',
+          'showRefLines',
+          'referenceLines',
+          'showRefLabels',
+          'xScaleMin',
+          'xScaleMax',
+          'yScaleMin',
+          'yScaleMax',
+          'trimXAxisTicks',
+          'trimYAxisTicks',
+          'rotateXAxisTicks',
+          'maxXAxisTickLength',
+          'maxYAxisTickLength',
+          'wrapTicks'
+        ],
+        defaults: {
+          yAxisLabel: 'GDP Per Capita',
+          xAxisLabel: 'Census Date',
+          linearScale: true
+        }
+      }]
+    },
+  {
     name: 'Bar Charts',
     charts: [
       {
