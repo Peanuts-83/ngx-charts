@@ -42,7 +42,7 @@ Path = M0,226.925L17.712,182.914L56.035,208.587L371.196,98.85L478,106.011
 ```
 
 #### Courbe résultante
-![Courbe résultante](image.png)
+![courbe](./curve.png)
 
 #### Traduction des données du path :
 * M : Debut du path 
