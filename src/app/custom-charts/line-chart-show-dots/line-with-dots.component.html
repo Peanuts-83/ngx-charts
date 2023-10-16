@@ -1,0 +1,26 @@
+<svg:g *ngIf="!isSSR">  
+  <svg:path
+    [@animationState]="'active'"
+    class="line-with-dots"
+    [attr.d]="initialPath"
+    [attr.fill]="fill"
+    [attr.stroke]="stroke"
+    stroke-width="1.5px"
+  />
+</svg:g>
+<svg:g *ngIf="isSSR">
+  <svg:path class="line" [attr.d]="initialPath" [attr.fill]="fill" [attr.stroke]="stroke" stroke-width="1.5px" />
+</svg:g>
+
+<!-- circles -->
+<svg:g>
+  <defs>
+    <circle id="dot" cx="2.5px" cy="2.5px" r="5px" fill="blue" />
+    <circle id="dotError" cx="2.5px" cy="2.5px" r="5px" fill="none" stroke="red" stroke-width="2px"/>
+  </defs>
+  <use x="10" y="15" href="#dot" />
+  <use x="20" y="30" href="#dotError" />
+</svg:g>
+<svg:g>
+  <text x="10" y="50" font-size="30" color="white" > {{initialPath | json}} </text>
+</svg:g>

@@ -26,6 +26,7 @@ import { InputTypes } from '@swimlane/ngx-ui';
 import { LegendPosition } from '@swimlane/ngx-charts/common/types/legend.model';
 import { ScaleType } from '@swimlane/ngx-charts/common/types/scale-type.enum';
 import { ShowDotsService } from './services/show-dots.service';
+import { BaseChartComponent } from '@swimlane/ngx-charts/common/base-chart.component';
 
 const monthName = new Intl.DateTimeFormat('en-us', { month: 'short' });
 const weekdayName = new Intl.DateTimeFormat('en-us', { weekday: 'short' });
@@ -835,17 +836,24 @@ export class AppComponent implements OnInit {
     this.bubbleDemoTempData = this.bubbleDemoChart.toChart();
   }
 
-  @ViewChild('myChart') myChart: any
+  @ViewChild('myChart') myChart: BaseChartComponent
 
   ngAfterViewInit(): void {
-    this.showDotsService.showDots(this.myChart)
-    // this.numberChartRef.nativeElement.querySelectorAll("g.line-series path").forEach((el) => {
-    //      el.setAttribute("stroke-width", "10");
-    //      el.setAttribute("stroke-linecap", "round");
-    //     });
+    if (this.myChart) {
+      // this.showDotsService.showDots(this.myChart)
+      // this.showDotsService.createMarker(this.myChart, "#f00", 5, 5)
+      // this.myChart.results.forEach(line => this.markAnomalie(line.series))
+    }
+  }
+
+  markAnomalie(serie: {name: string, value: number}) {
+    // if (serie.value > 5000 || serie.value < 4000) {
+
+    // }
   }
 
   @ViewChild("numberChart", {read: ElementRef, static: false})
   numberChartRef: ElementRef;
 
 }
+ 

@@ -385,10 +385,14 @@
         (deactivate)="deactivate($event)"
       >
       </ngx-charts-line-chart>
-      <!-- MY CHART -->
+      <!-- 
+      *******************************************************
+        MY CHART / LineChartShowDots
+      *******************************************************
+      *******************************************************
+      -->
       <line-chart-show-dots
         #myChart
-        #numberChart
         *ngIf="chartType === 'line-chart-show-dots'"
         [view]="view"
         class="chart-container"

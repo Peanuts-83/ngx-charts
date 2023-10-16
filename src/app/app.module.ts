@@ -11,6 +11,8 @@ import { NgxUIModule } from '@swimlane/ngx-ui';
 import { ComboChartComponent, ComboSeriesVerticalComponent } from './custom-charts/combo-chart';
 import { BubbleChartInteractiveModule } from './custom-charts/bubble-chart-interactive';
 import { LineChartShowDotsComponent } from './custom-charts/line-chart-show-dots/line-chart-show-dots.component';
+import { LineSeriesWithDotsComponent } from './custom-charts/line-chart-show-dots/line-series-with-dots.component';
+import { LineWithDotsComponent } from './custom-charts/line-chart-show-dots/line-with-dots.component';
 
 @NgModule({
   providers: [
@@ -33,7 +35,9 @@ import { LineChartShowDotsComponent } from './custom-charts/line-chart-show-dots
     TimelineFilterBarChartComponent,
     ComboChartComponent,
     ComboSeriesVerticalComponent,
-    LineChartShowDotsComponent
+    LineChartShowDotsComponent,
+    LineSeriesWithDotsComponent,
+    LineWithDotsComponent
   ],
   bootstrap: [AppComponent]
 })

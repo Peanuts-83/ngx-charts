@@ -32,7 +32,7 @@ export class ShowDotsService {
      * create marker
      *
      */
-    createMarker(chart, color, index) {
+    createMarker(chart, color, index, radius = 5) {
         const svg = chart.chartElement.nativeElement.getElementsByTagName('svg');
         const marker = document.createElementNS(
             'http://www.w3.org/2000/svg',
@@ -51,8 +51,8 @@ export class ShowDotsService {
             viewBox: '0 0 10 10',
             refX: 5,
             refY: 5,
-            markerWidth: 5,
-            markerHeight: 5
+            markerWidth: radius,
+            markerHeight: radius
         };
         const circleAttributes = {
             cx: 5,
