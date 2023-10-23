@@ -25,7 +25,6 @@ import pkg from '../../projects/swimlane/ngx-charts/package.json';
 import { InputTypes } from '@swimlane/ngx-ui';
 import { LegendPosition } from '@swimlane/ngx-charts/common/types/legend.model';
 import { ScaleType } from '@swimlane/ngx-charts/common/types/scale-type.enum';
-import { ShowDotsService } from './services/show-dots.service';
 import { BaseChartComponent } from '@swimlane/ngx-charts/common/base-chart.component';
 
 const monthName = new Intl.DateTimeFormat('en-us', { month: 'short' });
@@ -267,7 +266,7 @@ export class AppComponent implements OnInit {
   dimVisible: boolean = true;
   optsVisible: boolean = true;
 
-  constructor(public location: Location, public showDotsService: ShowDotsService) {
+  constructor(public location: Location) {
     this.mathFunction = this.getFunction();
 
     Object.assign(this, {
@@ -837,20 +836,6 @@ export class AppComponent implements OnInit {
   }
 
   @ViewChild('myChart') myChart: BaseChartComponent
-
-  ngAfterViewInit(): void {
-    if (this.myChart) {
-      // this.showDotsService.showDots(this.myChart)
-      // this.showDotsService.createMarker(this.myChart, "#f00", 5, 5)
-      // this.myChart.results.forEach(line => this.markAnomalie(line.series))
-    }
-  }
-
-  markAnomalie(serie: {name: string, value: number}) {
-    // if (serie.value > 5000 || serie.value < 4000) {
-
-    // }
-  }
 
   @ViewChild("numberChart", {read: ElementRef, static: false})
   numberChartRef: ElementRef;

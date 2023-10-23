@@ -15,6 +15,14 @@ Also, constructing custom charts is possible by leveraging the various ngx-chart
 
 For more info, check out the [documentation](https://swimlane.gitbook.io/ngx-charts) and the [demos](https://swimlane.github.io/ngx-charts/).
 
+
+## Line chart evol - Show dots on lines with specific values revealed (by Peanuts-83)
+
+The result of these evolutions of base code ngx-charts is displayed here. You can check for svg build workout on [./dataModel.ReadMe.md](dataModel.ReadMe.md) .
+![final result](./final.png)
+
+Only 3 components extend existing components to display these dots/extended circles. A service is also available to display the same dots on an entire path, but no specific value can be shown with this service... It can anyway be used for non specific use, in place of the 3 components created here.
+
 ## Features
 
 ### Chart Types

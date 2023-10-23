@@ -18,6 +18,7 @@ export class ShowDotsService {
         for (const path of paths) {
             const chrtColor = color[index].getAttribute('ng-reflect-fill');
             const pathElement = path.getElementsByTagName('path')[0];
+            // link an element to be displayed on a path from beginning to end (dots, crosses, arrows...)
             const pathAttributes = {
                 'marker-start': `url(#dot${index})`,
                 'marker-mid': `url(#dot${index})`,

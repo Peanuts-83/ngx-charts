@@ -1,4 +1,4 @@
-# Path SVG
+# Path SVG - Analyse du fonctionnement de la lib
 Exemple de data envoyé pour tracer un path/line:
 
 ```javascript
@@ -60,3 +60,21 @@ Ce qui donne ici :
 * point 1 { 0, 226.925 }
 * point 2 { 17.172, 182.914 }
 * etc... le tout relié par des lignes droites (L)
+
+## Attribution des valeurs au svg
+Les valeurs numeriques transmises au svg pour placer les points sur la courbe doivent etre transmises par interpollation des valeurs itérées dans une boucle *ngFor. 
+
+Les cercles de référence sont placés dans la balise \<defs\> puis récupérées pour être placées dans le svg avec \<use\>. Il faut employer [attr.x] et [attr.y] pour récupérer les valeurs au niveau de l'élément svg (ici un circle).
+
+```javascript
+<svg:g>
+  <defs>
+    <circle id="dot" cx="0" cy="0" r="4px" fill="blue" />
+    <circle id="dotError" cx="0" cy="0" r="5px" fill="none" stroke="red" stroke-width="2px"/>
+  </defs>
+  <ng-container *ngFor="let dot of dots; let i = index;">
+    <use *ngIf="!dot.anomalie" [attr.x]="dot.x" [attr.y]="dot.y" href="#dot" /> 
+    <use *ngIf="dot.anomalie" [attr.x]="dot.x" [attr.y]="dot.y" href="#dotError" /> 
+  </ng-container>
+</svg:g>
+```
